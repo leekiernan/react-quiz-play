@@ -18,10 +18,21 @@ class QuizComponent extends React.Component {
     $.get(this.props.source, (data) => {
       this.setState({
         questions: data.map( (q, ix) => {
-          return( <QuestionComponent question={q.question} answers={q.answers} key={ix} onQuestionAnswered={this.addAnswer.bind(this)} /> )
+          return(
+            <QuestionComponent
+              question={q.question}
+              answers={q.answers}
+              answer={q.correct}
+              // scores={q.scores}
+              key={ix}
+              onQuestionAnswered={this.addAnswer.bind(this)} /> )
         })
       });
     });
+
+    // $.get('../sources/answers.json', (data) => {
+    //   this.answers = data;
+    // });
   }
 
   addAnswer(question, answer) {
@@ -31,18 +42,18 @@ class QuizComponent extends React.Component {
     this.setState({
       userAnswers: newUserAnswers
     });
+
+    // debugger;
   }
 
   render() {
     return (
       <div className="quiz-component">
-        <h1>Quiz</h1>
+        <h1>Pete Kristeen-Selma Bordon</h1>
 
         <div className="panes">
           {this.state.questions}
         </div>
-
-        <button disabled> Next</button>
       </div>
     );
   }

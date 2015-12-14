@@ -25,7 +25,10 @@ class AnswerComponent extends React.Component {
   render() {
     return (
       <div className={ classNames('answer-component',
-        {selected: this.props.selectedAnswer == this.props.answerKey, correct: this.props.correctAnswer } )}
+        {
+          selected: this.props.selectedAnswer,
+          correct: this.props.correctAnswer
+        } )}
         disabled={this.props.selectedAnswer >= 0}
         onClick={this.onClick.bind(this)} >
         {this.props.answer}

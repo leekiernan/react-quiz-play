@@ -1,3 +1,5 @@
 .answer-component {
   border: 1px dashed #f00;
+  &.selected { border-color:#F90; }
+  &.correct { border-color:#6F0; }
 }
